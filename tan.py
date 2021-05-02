@@ -22,5 +22,5 @@ def layouts_diff(l1,l2):
     return
 
 if __name__ == "__main__":
-    if(sys.argv[1]==(None or "-t" or "--test"):
+    if( len(sys.argv)<=1 or sys.argv[1]==(None or "-t" or "--test")):
         pprint.pprint(parse_layout_s(test_string))
