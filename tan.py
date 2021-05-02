@@ -9,7 +9,7 @@ def parse_layout_s(layout_str = ""):
     types_d = {}
     res = {}
     tok1 = layout_str.split('-')
-    res['order'] = ["Big Endian" if layout_str[0]=='E' else 'Little Endian', layout_str[0]]
+    res['order'] = {"Big Endian" if layout_str[0]=='E' else 'Little Endian', layout_str[0]}
     for t in tok1[1:-1]:
         token = t.split(":")
         types_d[token[0]] = token[1:]
@@ -24,3 +24,7 @@ def layouts_diff(l1,l2):
 if __name__ == "__main__":
     if( len(sys.argv)<=1 or sys.argv[1]==(None or "-t" or "--test")):
         pprint.pprint(parse_layout_s(test_string))
+    elif sys.argv[1]==("-p" or "--parse"):
+        pprint.pprint(parse_layout_s(sys.argv[2]))
+    elif len(sys.argv)==2:
+        pprint.pprint(parse_layout_s(sys.argv[1]))
