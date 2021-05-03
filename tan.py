@@ -26,5 +26,9 @@ if __name__ == "__main__":
         pprint.pprint(parse_layout_s(test_string))
     elif sys.argv[1]==("-p" or "--parse"):
         pprint.pprint(parse_layout_s(sys.argv[2]))
+    elif sys.argv[1]==("-l" or "--ll"):
+        with open(sys.argv[2]) as f:
+            r=f.readline()
+            pprint.pprint(parse_layout_s(r))
     elif len(sys.argv)==2:
         pprint.pprint(parse_layout_s(sys.argv[1]))
